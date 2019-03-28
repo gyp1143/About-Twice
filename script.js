@@ -7,28 +7,29 @@ $(".to-bottom").on("click", function() {
     scrollTop: 0
   }, 18e3)
 }), $(function() {
-  var a, c = $("#sc-spy"),
-    h = c.outerHeight() + 15,
-    e = c.find("a"),
-    f = e.map(function() {
-      var a = $($(this).attr("href"));
-      if (a.length) return a
-    });
-  $(window).scroll(function() {
-    var b = $(this).scrollTop() + h,
-      c = f.map(function() {
-        if ($(this).offset().top < b) return this
+  function b() {
+    var a = $(this).scrollTop() + j,
+      b = e.map(function() {
+        if ($(this).offset().top < a) return this
       });
-    c = c[c.length - 1];
-    var i = c && c.length ? c[0].id : "";
-    a !== i && (a = i, e.parent().removeClass("active").end().filter("[href='#" + i + "']").parent().addClass("active"))
+    b = b[b.length - 1];
+    var f = b && b.length ? b[0].id : "";
+    d !== f && (d = f, h.parent().removeClass("active").end().filter("[href='#" + f + "']").parent().addClass("active"))
+  }
+  var d, g = $("#sc-spy"),
+    j = g.outerHeight() + 15,
+    h = g.find("a"),
+    e = h.map(function() {
+      var b = $($(this).attr("href"));
+      if (b.length) return b
+    });
+  b(), $(window).on("resize scroll", function() {
+    b()
   })
 }), $(document).ready(function() {
-  $(".smt-scr").on("click", function(c) {
-    c.preventDefault();
-    var a = this.hash;
+  $(".smt-scr").on("click", function() {
     $("html, body").animate({
-      scrollTop: $(a).offset().top
+      scrollTop: $(this.hash).offset().top
     }, 800)
   })
 });
