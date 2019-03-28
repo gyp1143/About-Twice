@@ -17,11 +17,7 @@ a {
   height:40px;
   border-radius: 50%;
   box-shadow: #ffadc5 0 0 0 2px inset;
-  transition: all .2s cubic-bezier(.39, .5, .15, 1.36);
-  -webkit-transition: all .2s cubic-bezier(.39, .5, .15, 1.36);
-  -moz-transition: all .2s cubic-bezier(.39, .5, .15, 1.36);
-  -ms-transition: all .2s cubic-bezier(.39, .5, .15, 1.36);
-  -o-transition: all .2s cubic-bezier(.39, .5, .15, 1.36)
+  transition: .2s cubic-bezier(.39, .5, .15, 1.36)
 }
 
 .button::before {
@@ -93,9 +89,7 @@ a {
 }
 
 #sc-spy a {
-  -webkit-transition: .5s all ease-out;
-  -moz-transition: .5s all ease-out;
-  transition: .5s all ease-out;
+  transition: .5s;
   opacity: .7
 }
 
