@@ -1,8 +1,8 @@
-$(".to-bottom").on("click", function(b) {
-  b.preventDefault(), $("html, body").animate({
-    scrollTop: $("#end").offset().top
+$(".to-bottom").on("click", function() {
+  $("html, body").animate({
+    scrollTop: $(document).height()
   }, 18e3)
-}), $(".to-top").click(function() {
+}), $(".to-top").on("click", function() {
   $("html, body").animate({
     scrollTop: 0
   }, 18e3)
