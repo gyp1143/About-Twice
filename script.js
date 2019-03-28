@@ -27,7 +27,8 @@ $(".to-bottom").on("click", function() {
     b()
   })
 }), $(document).ready(function() {
-  $(".smt-scr").on("click", function() {
+  $(".smt-scr").on("click", function(c) {
+    c.preventDefault();
     $("html, body").animate({
       scrollTop: $(this.hash).offset().top
     }, 800)
