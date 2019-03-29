@@ -41,15 +41,6 @@ a {
   box-shadow: #ffadc5 0 0 0 40px inset
 }
 
-.white-bg {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  background: #fff
-}
-
 .to-bottom, .to-top {
   position: absolute;
   color: #fff;
