@@ -1,27 +1,35 @@
-$(".marshall-slider").each(function() {
-  function h() {
-    i.find(".slider-item").removeClass("reveal").eq(c).addClass("reveal"), i.find(".paging-list .thumb").removeClass("highlight").eq(c).addClass("highlight")
-  }
-
-  function a() {
-    c = i.find(".paging-list .thumb.highlight").index(), c === e ? c = 0 : ++c, h(c)
-  }
-
+$(".to-bottom").on("click", function() {
+  $("html, body").animate({
+    scrollTop: $(document).height()
+  }, 18e3)
+}), $(".to-top").on("click", function() {
+  $("html, body").animate({
+    scrollTop: 0
+  }, 18e3)
+}), $(function() {
   function b() {
-    clearInterval(j), j = setInterval(function() {
-      a()
-    }, 5000)
+    var a = $(this).scrollTop() + j,
+      b = e.map(function() {
+        if ($(this).offset().top < a) return this
+      });
+    b = b[b.length - 1];
+    var f = b && b.length ? b[0].id : "";
+    d !== f && (d = f, h.removeClass("active").filter("[data-member='" + f + "']").addClass("active"))
   }
-  var c, i = $(this),
-    e = i.find(".paging-list .thumb").length - 1;
-  i.find(".paging-list .thumb").first().addClass("highlight"), i.find(".slider-item").first().addClass("reveal"), i.find(".paging-list .thumb").on("click", function() {
-    i.find(this).hasClass("highlight") || (c = i.find(this).index(), h(c), b())
-  }), i.find(".nextbtn").on("click", function() {
-    c = i.find(".paging-list .thumb.highlight").index(), c === e ? c = 0 : ++c, h(c), b()
-  }), i.find(".prevbtn").on("click", function() {
-    c = i.find(".paging-list .thumb.highlight").index(), e = i.find(".paging-list .thumb").length - 1, 0 === c ? c = e : --c, h(c), b()
-  });
-  var j = setInterval(function() {
-    a()
-  }, 5000)
+  var d, g = $("#sc-spy"),
+    j = g.outerHeight() + 15,
+    h = g.find("a"),
+    e = h.map(function() {
+      var b = $("#" + $(this).data("member"));
+      if (b.length) return b
+    });
+  b(), $(window).on("resize scroll", function() {
+    b()
+  })
+}), $(document).ready(function() {
+  $(".smt-scr").on("click", function() {
+    $("html, body").animate({
+      scrollTop: $("#" + $(this).data("member")).offset().top
+    }, 800)
+  })
 });
