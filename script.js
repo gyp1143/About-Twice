@@ -14,23 +14,22 @@ $(".to-bottom").on("click", function() {
       });
     b = b[b.length - 1];
     var f = b && b.length ? b[0].id : "";
-    d !== f && (d = f, h.parent().removeClass("active").end().filter("[href='#" + f + "']").parent().addClass("active"))
+    d !== f && (d = f, h.removeClass("active").filter("[data-member='" + f + "']").addClass("active"))
   }
   var d, g = $("#sc-spy"),
     j = g.outerHeight() + 15,
     h = g.find("a"),
     e = h.map(function() {
-      var b = $($(this).attr("href"));
+      var b = $("#" + $(this).data("member"));
       if (b.length) return b
     });
   b(), $(window).on("resize scroll", function() {
     b()
   })
 }), $(document).ready(function() {
-  $(".smt-scr").on("click", function(c) {
-    c.preventDefault();
+  $(".smt-scr").on("click", function() {
     $("html, body").animate({
-      scrollTop: $(this.hash).offset().top
+      scrollTop: $("#" + $(this).data("member")).offset().top
     }, 800)
   })
 });
