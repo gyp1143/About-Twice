@@ -2,7 +2,9 @@ body, html {
   margin: 0
 }
 
-* {-webkit-tap-highlight-color:transparent}
+* {
+  -webkit-tap-highlight-color:transparent
+}
 
 a {
   cursor: pointer
@@ -75,11 +77,6 @@ a {
   z-index: 3
 }
 
-#sc-spy li {
-  list-style: none;
-  overflow: hidden
-}
-
 #sc-spy li img {
   max-width: 90%;
   border-radius: 50%;
@@ -93,11 +90,11 @@ a {
   opacity: .7
 }
 
-#sc-spy a:hover, #sc-spy li.active a {
+#sc-spy a:hover, #sc-spy a.active {
   opacity: 1
 }
 
-#sc-spy li.active a img {
+#sc-spy a.active img {
   border-color: #333
 }
 
